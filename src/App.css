@@ -120,10 +120,10 @@ html {
     justify-content: space-between;
     gap: 40px;
     padding: 50px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(15px);
     border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     box-shadow: 0 20px 50px rgba(109, 40, 217, 0.05);
     margin: 20px 0;
 }
@@ -405,7 +405,7 @@ html {
  
 /* البطاقة الأساسية: خلفية بيضاء شفافة */
 .skill-category-card {
-    background: rgba(255, 255, 255, 0.4); /* زجاجي فاتح */
+    background: rgba(255, 255, 255, 0.9) !important; /* زجاجي فاتح */
     backdrop-filter: blur(10px);
     border-radius: 24px;
     padding: 25px;
@@ -665,8 +665,8 @@ html {
   align-items: center; 
   justify-content: space-between; 
   gap: 40px;
-  background: rgba(255, 255, 255, 0.4); 
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.9); 
+  backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 40px;
   border: 1px solid rgba(57, 32, 95, 0.05);
@@ -870,49 +870,57 @@ html {
     color: #39205f;
 }
 
+
+
+
+
 /* --- الإضافة الجديدة (تعديلات الجوال فقط) --- */
 @media (max-width: 480px) {
     .navbar {
-        margin: 10px;
-        padding: 6px 8px;
-        gap: 5px;
+        margin: 10px !important;
+        padding: 6px 8px !important;
+        gap: 5px !important;
+        display: flex !important; /* نضمن إنه فليكس */
     }
     .brand {
-        font-size: 13px;
-        padding: 4px 8px;
+        font-size: 13px !important;
+        padding: 4px 8px !important;
     }
     .navlinks {
-        gap: 4px;
-        justify-content: center; /* يخلي الأزرار تتوسط لو نزلت سطر جديد */
+        gap: 4px !important;
+        justify-content: center !important; 
+        display: flex !important;
     }
     .navlinks a {
-        font-size: 10px; /* صغرناه شوي زيادة عشان يضمن المساحة */
-        padding: 6px 8px;
+        font-size: 10px !important;
+        padding: 6px 8px !important;
     }
     .section-title {
-        font-size: 20px;
+        font-size: 20px !important;
     }
 }
-
 
 /* تنسيق قسم التواصل للجوال */
 @media (max-width: 480px) {
     .contact-form-row { 
-        flex-direction: column; /* يخلي الاسم فوق والإيميل تحت بدل ما يكونوا جنب بعض */
-        gap: 15px;
+        display: flex !important;
+        flex-direction: column !important; /* هذا أهم سطر للمشكلة اللي شفتها بالصورة */
+        gap: 15px !important;
     }
 
     .contact-container {
-        padding: 20px 15px; /* تقليل المسافات الجانبية */
-        margin: 10px;
-        width: auto;        /* يخلي الحاوية تتأقلم مع عرض الجوال */
+        padding: 20px 15px !important;
+        margin: 10px !important;
+        width: auto !important;
+        max-width: 100% !important;
     }
 
     .contact-input, .contact-textarea {
-        width: 100%;        /* الحقول تاخذ العرض كامل */
+        width: 100% !important; /* عشان ما تطلع برا الشاشة */
+        box-sizing: border-box !important; /* يضمن إن الـ padding ما يزود العرض */
     }
 
     .contact-title {
-        font-size: 28px;    /* تصغير "Email me!" شوي */
+        font-size: 28px !important;
     }
 }
