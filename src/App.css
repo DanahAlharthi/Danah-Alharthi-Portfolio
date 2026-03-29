@@ -924,3 +924,31 @@ html {
         font-size: 28px !important;
     }
 }
+
+
+/* الخلطة الذهبية: توازن بين الشفافية والوضوح */
+.hero, 
+.skill-category-card, 
+.achievement-row, 
+.project-card {
+    background: rgba(255, 255, 255, 0.9) !important; /* رفعناها من 0.02 لـ 0.15 عشان تبرز */
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    
+    /* حدود أنيقة جداً */
+    border: 1px solid rgba(255, 255, 255, 1) !important;
+    border-radius: 30px !important;
+
+    /* ظل خفيف وناعم بلمسة بنفسجية بدل الأسود الحاد */
+    box-shadow: 
+        0 15px 35px rgba(57, 32, 95, 0.1),          /* ظل خارجي ناعم */
+        inset 0 0 10px rgba(255, 255, 255, 0.2),      /* توهج داخلي */
+        inset 0 0 1px rgba(255, 255, 255, 0.6) !important; /* لمعة الحافة */
+    
+    transition: all 0.4s ease-in-out;
+}
+
+/* عشان المشاريع تطقم معهم تماماً */
+.project-card {
+    overflow: hidden;
+}
