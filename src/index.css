@@ -1,0 +1,112 @@
+:root {
+    font-family:
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(900px 500px at 15% 8%, #0d011755, transparent 60%),
+        radial-gradient(900px 500px at 85% 18%, #4b0b6d55, transparent 60%),
+        radial-gradient(900px 500px at 50% 95%, #40024866, transparent 60%),
+        linear-gradient(180deg, #1e0a2e 0%, #57107e 100%);
+} */
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    /* خلفية أغمق نتفة عشان يبان البياض واللمعة */
+    background: linear-gradient(135deg, #f0eaff 0%, #e0f2fe 100%);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* التنسيق المتطور: فقاعات "صابون" ملونة وشفافة */
+body::before,
+body::after,
+.page::before,
+.page::after {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    
+    /* سر الألوان: تدرج شعاعي يعطي لمعة الموف والوردي على الأطراف */
+    background: radial-gradient(circle at 30% 30%, 
+                rgba(255, 255, 255, 0.8) 0%, 
+                rgba(255, 255, 255, 0.2) 20%, 
+                rgba(167, 139, 250, 0.1) 50%, 
+                rgba(244, 114, 182, 0.1) 80%);
+
+    /* حدود نحيفة بلون موف فاتح يبرق */
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    
+    /* ظلال تعطي لمعة الألماس */
+    box-shadow: 
+        inset 2px 2px 10px rgba(255, 255, 255, 0.8),
+        inset -5px -5px 15px rgba(167, 139, 250, 0.2),
+        0 10px 30px rgba(139, 92, 246, 0.1);
+
+    z-index: -1;
+    
+    /* تغبيش معتدل يخليها "تلمع" بدون ما تختفي */
+    backdrop-filter: blur(3px) contrast(1.1); 
+}
+
+/* أنيميشن حيوي يخليها تبرق وتتحرك */
+@keyframes floatShiny {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(40px, -60px) rotate(120deg); }
+    66% { transform: translate(-30px, 30px) rotate(240deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+/* الفقاعة 1 - كبيرة وواضحة */
+body::before {
+    width: 250px; height: 250px;
+    top: 5%; left: -2%;
+    animation: floatShiny 10s linear infinite;
+}
+
+/* الفقاعة 2 - موف وردي */
+body::after {
+    width: 300px; height: 300px;
+    bottom: -5%; right: -2%;
+    animation: floatShiny 12s linear infinite reverse;
+}
+
+/* الفقاعة 3 - وسط يمين */
+.page::before {
+    content: "";
+    width: 150px; height: 150px;
+    top: 35%; right: 5%;
+    animation: floatShiny 8s linear infinite 1s;
+}
+
+/* الفقاعة 4 - صغيرة وبرّاقة */
+.page::after {
+    content: "";
+    width: 100px; height: 100px;
+    bottom: 20%; left: 10%;
+    animation: floatShiny 7s linear infinite 0.5s;
+}
+
+
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 42px 16px;
+}

@@ -1,0 +1,806 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+
+.page {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+
+
+.shell {
+    width: 100%;
+    border-radius: 40px; 
+    background: rgba(255, 255, 255, 0.014); 
+    
+    /* إطار أبيض فاتح (اللمعة الأساسية) */
+    border: 1px solid rgba(108, 40, 217, 0.082); 
+
+    /* الخلطة السرية للتوهج: ظل أسود خارجي + ظل أبيض داخلي يعطي اللمعة */
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.2),            /* ظل العمق */
+        inset 0 0 15px rgba(255, 255, 255, 0.3),   /* توهج داخلي خفيف */
+        inset 0 0 2px rgba(255, 255, 255, 0.8);    /* خط لمعة حاد على الحافة */
+
+    backdrop-filter: blur(10px); /* تغبيش عالي للفخامة */
+    overflow: hidden;
+}
+
+/* Top nav */
+.navbar {
+    position: sticky;
+    top: 14px;
+    z-index: 20;
+    margin: 14px;
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    padding: 10px 12px;
+
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    backdrop-filter: blur(12px);
+}
+
+.brand {
+    font-weight: 950;
+    letter-spacing: -0.02em;
+    color: #39205f;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(95, 7, 119, 0.06);
+    border: 1px solid rgba(7, 45, 119, 0.1);
+}
+
+.navlinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.navlinks a {
+    text-decoration: none;
+    font-weight: 850;
+    font-size: 14px;
+    color: #39205f;;
+
+    padding: 8px 12px;
+    border-radius: 999px;
+
+    background: rgba(50, 10, 72, 0.04);
+    border: 1px solid rgba(27, 15, 42, 0.08);
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+.navlinks a:hover {
+    transform: translateY(-1px);
+    background: rgba(7, 45, 119, 0.1);
+}
+
+.navlinks a.cta {
+    background: #39205f;
+    color: white;
+    border-color: #39205f;
+}
+
+
+/* Content spacing */
+.content {
+    padding: 10px 18px 10px;
+}
+
+
+.section {
+    padding: 26px 6px;
+}
+
+.section-title {
+    margin: 0 0 12px;
+    font-size: 25px;
+    letter-spacing: -0.02em;
+    color: #39205f;;
+}
+
+
+/* HERO SECTION CLEAN VERSION */
+.hero {
+    display: flex;
+    flex-direction: row; /* الكلام يسار */
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 20px 50px rgba(109, 40, 217, 0.05);
+    margin: 20px 0;
+}
+
+.heroContent {
+    flex: 1;
+    text-align: left;
+}
+
+.heroName {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #39205f;
+    margin: 0 0 10px 0;
+    min-height: 1.2em; /* يحافظ على مساحة الاسم حتى وهو ينكتب */
+    display: block;
+}
+
+
+/* تنسيق التاق الجديد: رمادي، مائل، نحيف */
+.heroRoleTag {
+    display: inline-block;
+    /* لون رمادي متوسط وواضح */
+    color: #64748b; 
+    /* خط مائل */
+    font-style: italic; 
+    /* وزن الخط نحيف (Light) */
+    font-weight: 480; 
+    font-size: 1rem;
+    
+    /* إلغاء الخلفية البنفسجية */
+    background: transparent; 
+    /* تأكيد أن البوردر شفاف (ملغي) */
+    border: none; 
+    
+    /* تقليل الحشو والمارجن لأن التاق صار أنحف */
+    padding: 0; 
+    margin-bottom: 20px; 
+    /* إلغاء حواف التدوير القديمة */
+    border-radius: 0; 
+}
+
+.heroSummary {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 35px;
+    max-width: 550px;
+}
+
+/* الأزرار */
+.heroActions {
+    display: flex;
+    gap: 15px;
+}
+
+/* الخصائص المشتركة للزرين (الحجم، الزوايا، الخط) */
+.btnPrimary, .btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;     /* نفس الطول والعرض */
+  border-radius: 12px;    /* نفس الزوايا الدائرية */
+  font-weight: 600;       /* نفس ثقل الخط */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  min-width: 160px;       /* يضمن إن الزرين نفس العرض حتى لو الكلام اختلف */
+  height: 48px;           /* يضمن إن الزرين نفس الارتفاع بالضبط */
+  font-size: 16px;
+}
+
+/* الزر الأساسي (الموف) */
+.btnPrimary {
+  background-color: #39205f; 
+  color: white;
+  border: 2px solid #39205f; /* أضفت إطار بنفس اللون عشان الحجم يتساوى */
+}
+
+/* الزر الثانوي (الأبيض/المفرغ) */
+.btnSecondary {
+  background-color: transparent; /* خلفية شفافة/بيضاء */
+  color: #39205f;                /* النص بلون الموف */
+  border: 2px solid #39205f;    /* إطار موف بنفس سماكة الزر الأول */
+}
+
+/* حركة حلوة لما تمرين بالماوس (Hover) */
+.btnSecondary:hover {
+  background-color: #f5f3f7;    /* لون موف خفييييف جداً عند التمرير */
+  transform: translateY(-2px);   /* يرتفع شوي */
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+
+/* --- تنسيق شبكة المشاريع (3 كروت في الصف) --- */
+.projects-grid {
+    display: grid;
+    /* هذا السطر يضمن توزيع الـ 6 مشاريع: 3 في كل صف، وفي الجوال تصير 1 فوق بعض */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; /* المسافة بين البطاقات */
+    padding: 20px 0;
+}
+
+/* --- تنسيق بطاقة المشروع (Glassmorphism) --- */
+.project-card {
+    background: rgba(255, 255, 255, 0.05); /* شفافية خفيفة */
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden; /* عشان الصورة ما تطلع برا الحواف المنحنية */
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px); /* حركة الارتفاع عند التمرير */
+    border-color: rgba(57, 32, 95, 0.3); /* توهج بنفسجي خفيف للحدود */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- مكان السلايدر أو الصورة داخل البطاقة --- */
+.card-slider {
+    width: 100%;
+    height: 180px; /* ارتفاع ثابت للصور عشان الترتيب */
+    background: rgba(57, 32, 95, 0.05);
+    overflow: hidden;
+}
+
+.card-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* يخلي الصورة تملأ المكان بدون تمطيط */
+}
+
+/* --- معلومات المشروع داخل البطاقة --- */
+.project-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.project-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+    color: #39205f; /* البنفسجي حقك */
+}
+
+.project-info p {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* --- تنسيق تاقات التقنيات داخل المشروع --- */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-stack span {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    background: white;
+    color: #39205f;
+    border: 1px solid rgba(57, 32, 95, 0.1);
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+
+
+
+
+
+.hero-image-wrapper {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* سنتر عمودي وأفقي حقيقي */
+    margin: 0 auto;
+}
+
+.profile-frame {
+    position: absolute;
+    width: 295px; /* قطر الدائرة الزجاجية */
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        inset 0 0 20px rgba(255, 255, 255, 0.2),
+        0 10px 30px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+.profile-img {
+    position: absolute;
+    /* السر هنا: خلي العرض أكبر من الدائرة بشوي */
+    width: 300px; 
+    /* ارفعي الصورة للأعلى عشان الراس يبرز وقصة كانفا تختفي وراء الإطار السفلي */
+    bottom: 10px; 
+    z-index: 2;
+    object-fit: contain;
+    /* هذي الحركة تضمن أن الصورة دائماً في النص */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+
+
+
+/* للجوال */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 30px;
+    }
+    .heroContent { text-align: center; }
+    .heroActions { justify-content: center; }
+}
+
+
+
+
+/* Cards layout */
+.grid2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+@media (max-width: 860px) {
+    .grid2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 18px;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 10px 26px rgba(2, 6, 23, 0.06);
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(2, 6, 23, 0.1);
+}
+
+.cardTitle {
+    font-weight: 950;
+    color: #0f172a;
+}
+.cardSub {
+    margin-top: 6px;
+    color: #334155;
+    font-weight: 750;
+}
+.cardMeta {
+    margin-top: 6px;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+ 
+/* البطاقة الأساسية: خلفية بيضاء شفافة */
+.skill-category-card {
+    background: rgba(255, 255, 255, 0.4); /* زجاجي فاتح */
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* حدود ناعمة */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.03); /* ظل خفيف جداً */
+}
+
+.category-header {
+    display: flex; /* يجعل العناصر جنب بعض */
+    align-items: center; /* يوازنهم عمودياً في المنتصف */
+    gap: 15px; /* مسافة أفقية بين الأيقونة والعنوان */
+    margin-bottom: 20px; /* مسافة بين العنوان والمهارات اللي تحته */
+}
+
+.category-header h3 {
+    margin: 0; /* يزيل المسافات التلقائية اللي ممكن تخرب الموازنة */
+    color: #39205f;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.category-icon {
+    background: rgba(57, 32, 95, 0.1); /* خلفية بنفسجية فاتحة جداً للأيقونة */
+    color: #39205f; /* الأيقونة بنفسجية */
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.skills-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 8px; /* الرقم الثاني (20px) هو اللي يزيد المسافة الأفقية بين فيقما واللي جنبها */
+    margin-top: 15px; /* مسافة بسيطة بين العنوان والمهارات */
+}
+
+
+/* المهارات الفردية: بدل الرمادي نخليه أبيض بحدود بنفسجية */
+.individual-skill {
+    background: white;
+    border: 1px solid rgba(57, 32, 95, 0.1);
+    color: #39205f;
+    padding: 8px 18px; /* الـ 18px تزيد عرض الكبسولة من الداخل وتخليها أرتب */
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500; /* خليته أنحف شوي عشان يطلع أنيق */
+    white-space: nowrap; /* يمنع الكلمة تنقسم لسطرين */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02); /* ظل خفيف جداً يخليها بارزة عن الخلفية */
+}
+
+/* عند المرور بالماوس: تنعكس الألوان */
+.individual-skill:hover {
+    background: #39205f;
+    color: white;
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+/* Education timeline */
+.timeline {
+    position: relative;
+    padding-left: 18px;
+    display: grid;
+    gap: 12px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    border-radius: 999px;
+    background: rgba(7, 45, 119, 0.18);
+}
+
+.tItem {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 12px;
+    align-items: start;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background: #072d77;
+    margin-top: 6px;
+    box-shadow: 0 0 0 4px rgba(7, 45, 119, 0.12);
+}
+
+/* Footer */
+.footer {
+    padding: 18px;
+    border-top: 1px solid rgba(15, 23, 42, 0.1);
+    color: #64748b;
+    font-size: 13px;
+    text-align: center;
+}
+
+
+
+
+/* تنسيقات إضافية للسلايدر عشان النقاط والأسهم */
+
+/* تصغير الأسهم وتغيير لونها للأبيض الشفاف */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px !important; /* حجم السهم */
+  font-weight: bold;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgba(255, 255, 255, 0.8) !important; /* لون أبيض شفاف */
+  background: rgba(0, 0, 0, 0.2); /* خلفية داكنة خفيفة جداً للدائرة */
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50%;
+}
+
+/* تحسين شكل النقاط (اللي تحت) */
+.swiper-pagination-bullet {
+  background: #ffffff !important;
+  opacity: 0.6;
+}
+
+.swiper-pagination-bullet-active {
+  background: #39205f !important; /* لون بنفسجي للنقطة النشطة */
+  opacity: 1;
+}
+
+/* تأثير بسيط عند تمرير الماوس على الكرت */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px); /* يرتفع الكرت شوي */
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+
+.send-btn:hover {
+  background-color: #4a2b7a !important;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(57, 32, 95, 0.3);
+}
+
+
+
+
+/* الحاوية المستطيلة الموف الزجاجية */
+.social-icon-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 70px !important;  /* عرض المستطيل */
+    height: 48px !important; /* طول المستطيل */
+    border-radius: 14px !important; /* زوايا ناعمة فخمة */
+    
+    background: rgb(57, 32, 95) !important; /* موف زجاجي غامق */
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    cursor: pointer !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* الأيقونة داخل المستطيل */
+.social-icon-wrapper svg {
+    width: 24px !important;
+    height: 24px !important;
+    fill: #ffffff !important; /* لون أبيض ناصع */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3)) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* حركة الـ Hover الفخمة */
+.social-icon-wrapper:hover {
+    background: #39205f !important; /* يفتح اللون ويصير مشع */
+    transform: translateY(-5px) scale(1.08) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 15px 35px rgba(57, 32, 95, 0.4) !important;
+}
+
+.social-icon-wrapper:hover svg {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8)) !important;
+    transform: rotate(5deg); /* حركة بسيطة للأيقونة */
+}
+
+/* حاوية الأيقونات عشان يجون جنب بعض */
+.social-links-container {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    margin-top: 40px !important;
+}
+
+
+
+
+
+
+/* يخلي أول قسم ينزل تحت وما يتغطى بالناف بار */
+#home, .hero, header {
+  padding-top: 40px !important;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #39205f;
+  font-weight: 600;
+  margin-right: 20px;
+}
+
+.contact-btn {
+  background: #39205f;
+  color: white !important;
+  padding: 10px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+
+
+
+
+
+
+
+/* تنسيق قسم الجوائز الجديد (صفوف مع صور) */
+
+.achievements-content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* مسافة كبيرة بين الجوائز */
+  padding: 20px 5%; /* مسافة جانبية متوازنة */
+}
+
+
+.achievement-row {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.4); 
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid rgba(57, 32, 95, 0.05);
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+}
+
+
+
+
+.achievement-row:hover {
+  transform: translateY(-5px);
+  background: white;
+  box-shadow: 0 20px 60px rgba(57, 32, 95, 0.08);
+  border-color: rgba(57, 32, 95, 0.1);
+}
+
+/* جزء النص (اليسار) */
+.award-text-block {
+  flex: 1.2; /* النص يأخذ مساحة أكبر قليلاً */
+  text-align: left; /* محاذاة النص لليسار */
+}
+
+.award-year-tag {
+  background: rgba(57, 32, 95, 0.08); /* موف فاتح جداً */
+  color: #39205f; /* الموف حقك الغامق */
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.award-row-title {
+  color: #39205f;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.award-row-org {
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.award-row-desc {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* جزء الصورة (اليمين) */
+.award-image-block {
+  flex: 1; /* الصورة متوازنة */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* أجبر المتصفح يطبق الستايل الزجاجي الرهيب */
+
+.achievement-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 40px !important;
+  margin-bottom: 30px !important;
+  padding: 40px !important;
+  border-radius: 24px !important;
+  
+  /* التأثير الزجاجي اللي تبينه */
+  background: rgba(255, 255, 255, 0.4) !important; 
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  
+  /* إطار خفيف جداً يحدد الكرت */
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05) !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+/* الزهوفر الرهيب */
+.achievement-row:hover {
+  background: rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 15px 45px rgba(57, 32, 95, 0.1) !important;
+  border: 1px solid rgba(57, 32, 95, 0.2) !important;
+}
+
+/* تحديد حجم كتل الصور بشكل عام */
+.award-image-container, .award-image-block {
+  flex: 1 !important; /* حصة متساوية مع النص */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  max-width: 450px !important; /* أقصى عرض للكتلة بأكملها */
+}
+
+/* أهم جزء: تحديد حجم الصورة نفسها بداخل الكتلة */
+.award-row-img {
+  width: 100% !important;        /* الصورة تملأ الكتلة المقيدة */
+  height: 350px !important;       /* ارتفاع ثابت عشان يطلعون طقم (عدلي الرقم حسب ذوقك) */
+  object-fit: cover !important;   /* السحر هنا! تقص الصورة بس تحافظ على أبعادها بدون ما تتمطط */
+  border-radius: 16px !important; /* زوايا ناعمة */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important; /* ظل ناعم */
+}
+
+
+/* تنسيق النصوص عشان ما تضيع في البياض */
+.award-row-title {
+  color: #39205f !important;
+  font-weight: bold !important;
+  margin-bottom: 8px !important;
+}
+
+/* للموبايل: ترتيب عمودي */
+@media (max-width: 768px) {
+  .achievement-row {
+    flex-direction: column-reverse; /* الصورة فوق النص على الموبايل */
+    gap: 30px;
+    padding: 30px;
+  }
+  
+  .award-text-block {
+    text-align: center; /* توسيط النص على الموبايل */
+  }
+}
+
+
+
+
+
+
