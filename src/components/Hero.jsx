@@ -1,7 +1,7 @@
 import React from "react";
 // استيراد مكون الكتابة
 import { Typewriter } from 'react-simple-typewriter';
-import myProfileImg from '../assets/me.PNG'; // نطلع خطوة برا المجلد وندخل assets
+import myProfileImg from '../assets/me.png'; // نطلع خطوة برا المجلد وندخل assets
 
 export default function Hero({ data }) {
   if (!data) return null;
