@@ -3,10 +3,19 @@ import React from 'react';
 // جربي كتابة المسار كذا بالضبط وتأكدي من الامتداد
 import dubaiPhoto from "../assets/dubai-award.jpg"; 
 import muazirPhoto from "../assets/muazir-award.jpg";
+import imtinanPhoto from '../assets/imtinan.jpg'; // تأكدي من المسار واسم الصورة
 
 const achievementsData = [
   {
-    id: 1,
+    id: 1, 
+    title: "1st Place Winner | Jusoor Projects Competition (Figma Track)",
+    org: "Jusoor Closing Ceremony",
+    year: "2026",
+    desc: "Secured first place among over 150 participants in the Jusoor program for 'Imtinan,' a digital gratitude journal application. The project was awarded for its exceptional UI/UX execution and advanced high-fidelity prototyping, demonstrating excellence in user-centered design and interactive modeling.",
+    image: imtinanPhoto,
+  },
+  {
+    id: 2,
     title: "2nd Runner-up | Inter-College Environmental Public Speaking Competition",
     org: "EEG - Dubai, UAE",
     year: "2025",
