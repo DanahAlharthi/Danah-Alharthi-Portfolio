@@ -3,7 +3,7 @@ import React from 'react';
 // جربي كتابة المسار كذا بالضبط وتأكدي من الامتداد
 import dubaiPhoto from "../assets/dubai-award.jpg"; 
 import muazirPhoto from "../assets/muazir-award.jpg";
-import imtinanPhoto from '../assets/imtinan.jpg'; // تأكدي من المسار واسم الصورة
+import imtinanPhoto from '../assets/imtinanPhoto.jpg'; // تأكدي من المسار واسم الصورة
 
 const achievementsData = [
   {
